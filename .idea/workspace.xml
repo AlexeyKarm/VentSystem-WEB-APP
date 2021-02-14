@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="356d266e-7aac-4075-a4bf-3c49fb766f88" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JQLSearcherProjectManager">
+    <selected>-1</selected>
+    <searchers />
+  </component>
+  <component name="JiraServerManager">
+    <selected>-1</selected>
+    <servers />
+  </component>
+  <component name="ProjectId" id="1kYkNR4xq3oEMx5YtLsV1S4HLMp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="356d266e-7aac-4075-a4bf-3c49fb766f88" name="Default Changelist" comment="" />
+      <created>1605884871395</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605884871395</updated>
+      <workItem from="1605884872792" duration="529000" />
+      <workItem from="1605885962231" duration="1276000" />
+      <workItem from="1606130388181" duration="22524000" />
+      <workItem from="1606818652913" duration="8735000" />
+      <workItem from="1607687425939" duration="22979000" />
+      <workItem from="1608553588705" duration="5421000" />
+      <workItem from="1608640066251" duration="14936000" />
+      <workItem from="1608728091303" duration="76000" />
+      <workItem from="1608732643384" duration="1579000" />
+      <workItem from="1608742273745" duration="526000" />
+      <workItem from="1608977948486" duration="641000" />
+      <workItem from="1609759147229" duration="1570000" />
+      <workItem from="1609846709152" duration="6074000" />
+      <workItem from="1610111189229" duration="5366000" />
+      <workItem from="1610366365279" duration="7373000" />
+      <workItem from="1610713831049" duration="4622000" />
+      <workItem from="1610893056305" duration="3186000" />
+      <workItem from="1610896452944" duration="602000" />
+      <workItem from="1610898152483" duration="6393000" />
+      <workItem from="1610973771009" duration="743000" />
+      <workItem from="1611148575057" duration="3012000" />
+      <workItem from="1611176237004" duration="9759000" />
+      <workItem from="1611187727852" duration="1307000" />
+      <workItem from="1611238607646" duration="583000" />
+      <workItem from="1611240469606" duration="14120000" />
+      <workItem from="1611650810761" duration="26516000" />
+      <workItem from="1611748808601" duration="22013000" />
+      <workItem from="1611831450971" duration="17964000" />
+      <workItem from="1611873622766" duration="5119000" />
+      <workItem from="1611921312056" duration="881000" />
+      <workItem from="1611931282638" duration="3200000" />
+      <workItem from="1612010224497" duration="17926000" />
+      <workItem from="1612104037621" duration="1339000" />
+      <workItem from="1612173160058" duration="5626000" />
+      <workItem from="1612358924749" duration="4957000" />
+      <workItem from="1612431717034" duration="14262000" />
+      <workItem from="1612475499028" duration="3353000" />
+      <workItem from="1612520089779" duration="12960000" />
+      <workItem from="1612555117393" duration="9150000" />
+      <workItem from="1612712448404" duration="1013000" />
+      <workItem from="1613305461417" duration="440000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="76" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1611921878297">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="320" y="76" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1611921878297" />
+    <state x="370" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611664336415">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="370" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1611664336415" />
+    <state x="420" y="95" key="FileChooserDialogImpl" timestamp="1608977993234">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="420" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608977993234" />
+    <state x="296" y="150" key="run.anything.popup" timestamp="1611755662361">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="296" y="150" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1611755662361" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612022571095">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612022571095" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$USER_HOME$/AppData/Local/Temp/Rar$DRa0.061/architectui-react-free-1.0.0/src/DemoPages/Elements/BadgesLabels/index.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
