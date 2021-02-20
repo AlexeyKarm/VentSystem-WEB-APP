@@ -40,6 +40,56 @@
 .border-alternate {
   border-color: #6f42c1; }
 
+.ghost-button-delete {
+  display: inline-block;
+  padding: 8px;
+  color: #DC143C;
+  border: none;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 auto;
+  outline: none;
+  text-decoration: none;
+  transition: border-color 0.3s ease-out,
+  color 0.3s ease-out;
+}
+.ghost-button-delete:hover,
+.ghost-button-delete:active {
+  color: #66d8ed;
+  border-color: #66d8ed;
+  transition: border-color 0.4s ease-in,
+  color 0.2s ease-in;
+  text-decoration: none;
+}
+
+.ghost-button-edit {
+  display: inline-block;
+  padding: 8px;
+  color: #2E8B57;
+border: none;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 auto;
+  outline: none;
+  text-decoration: none;
+  transition: border-color 0.3s ease-out,
+  color 0.3s ease-out;
+}
+.ghost-button-edit:hover,
+.ghost-button-edit:active {
+  color: #66d8ed;
+  border-color: #66d8ed;
+  transition: border-color 0.4s ease-in,
+  color 0.2s ease-in;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+  #scriptsName {
+    margin-left: 30px;
+  }
+}
+
 .list-group-item-primary {
   color: #021f3c;
   background-color: #b8c8d8; }
@@ -497,6 +547,8 @@ input[type="radio"]
   box-sizing: border-box;
   padding: 0;
   transform: scale(2);
+  margin-top: 15px;
+
 }
 
 input[type="date"],
@@ -2195,7 +2247,7 @@ fieldset:disabled a.btn {
 
 .btn-info {
   color: #fff;
-  background: #2FA4E7 linear-gradient(180deg, #4eb2eb, #2FA4E7) repeat-x;
+  background: linear-gradient(60deg, #0056b3 0%, #37b5dd 100%) #2FA4E7 ;
   border-color: #2FA4E7; }
   .btn-info:hover {
     color: #fff;

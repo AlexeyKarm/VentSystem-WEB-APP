@@ -11,9 +11,11 @@ import People from './People.svg'
 import {
     Row, Col,
     CardHeader,
-    Card,
-    CardBody,
+    Card, CardFooter,
+    CardBody, Button, ButtonGroup,
 } from 'reactstrap';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faLeaf} from "@fortawesome/free-solid-svg-icons";
 
 const domain = 'https://back.vc-app.ru/';
 let info = getJSON('app/datchik?did=10155&json=1');
@@ -59,11 +61,11 @@ export default class AnalyticsDashboard extends Component {
                             </CardHeader>
                             <CardBody className="pt-2">
                                 <Row className="mt-3">
-                                    <Col md="6">
+                                    <Col lg="6">
                                         <div className="widget-content">
                                             <div className="widget-content-outer">
                                                 <div className="widget-content-wrapper">
-                                                    <img src={Temp} alt='' width="10%"/>
+                                                    <img style={{marginLeft: '3%'}} className="mr-3" src={Temp} alt='' width="10%"/>
                                                     <div className="widget-content-left mr-3">
                                                         <div className="widget-numbers fsize-3 text-muted">
                                                             {item.temp}
@@ -78,11 +80,11 @@ export default class AnalyticsDashboard extends Component {
                                             </div>
                                         </div>
                                     </Col>
-                                    <Col md="6">
+                                    <Col lg="6">
                                         <div className="widget-content">
                                             <div className="widget-content-outer">
                                                 <div className="widget-content-wrapper">
-                                                    <img src={CO2} alt='' width="15%"/>
+                                                    <img className="mr-2" src={CO2} alt='' width="15%"/>
                                                     <div className="widget-content-left mr-3">
                                                         <div className="widget-numbers fsize-3 text-muted">
                                                             {item.co2}
@@ -99,11 +101,11 @@ export default class AnalyticsDashboard extends Component {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col md="6">
+                                    <Col lg="6">
                                         <div className="widget-content">
                                             <div className="widget-content-outer">
                                                 <div className="widget-content-wrapper">
-                                                    <img src={Humidity} alt='' width="10%"/>
+                                                    <img style={{marginLeft: '3%'}} className="mr-3" src={Humidity} alt='' width="10%"/>
                                                     <div className="widget-content-left mr-3">
                                                         <div className="widget-numbers fsize-3 text-muted">
                                                             {item.humidity}
@@ -118,11 +120,11 @@ export default class AnalyticsDashboard extends Component {
                                             </div>
                                         </div>
                                     </Col>
-                                    <Col md="6">
+                                    <Col lg="6">
                                         <div className="widget-content">
                                             <div className="widget-content-outer">
                                                 <div className="widget-content-wrapper">
-                                                    <img src={People} alt='' width="15%"/>
+                                                    <img style={{marginLeft: '1%'}} className="mr-2" src={People} alt='' width="15%"/>
                                                     <div className="widget-content-left mr-3">
                                                         <div className="widget-numbers fsize-3 text-muted">
                                                             {item.people}
@@ -139,6 +141,16 @@ export default class AnalyticsDashboard extends Component {
                                     </Col>
                                 </Row>
                             </CardBody>
+                            <CardFooter className="pt-3">
+                                <ButtonGroup size="md">
+                                    <Button href="#" className="mb-1 mr-1" color="success">
+                            <span className="btn-icon-wrapper pr-2 opacity-9">
+                                <FontAwesomeIcon icon={faLeaf}/>
+                            </span>
+                                        Проветрить
+                                    </Button>
+                                </ButtonGroup>
+                            </CardFooter>
                         </Card>
                     </div>
                 })}

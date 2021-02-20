@@ -60,10 +60,10 @@ function getCur(number){
         curIdIndex = number;
     }
     if (curIdIndex === number) {
-        return <Input type="radio" name="radio" onClick={(e) => changeCurScenario(e, number)} checked />
+        return <Input type="radio" name="radio" onChange={(e) => changeCurScenario(e, number)} checked />
     }
     else {
-        return <Input type="radio" name="radio" onClick={(e) => changeCurScenario(e, number)} />
+        return <Input type="radio" name="radio" onChange={(e) => changeCurScenario(e, number)} />
     }
 }
 
@@ -102,11 +102,9 @@ function deleteScenario(num) {
     }
 
     return (
-        <Button className="mb-2 mr-2" id="del_btn" color="danger"
-                onClick={handleClick}>
-            <FontAwesomeIcon icon={faTrash} size="lg"/>
-            {' '}Удалить
-        </Button>
+        <a className="ghost-button-delete" href="#/scenarioslist/basic" onClick={handleClick}>
+        <FontAwesomeIcon icon={faTrash} size="lg"/>{' '}Удалить
+        </a>
     )
 
 }
@@ -147,7 +145,6 @@ export default class ScenariosDashboard extends Component {
                     transitionLeave={false} >
 
                     <ButtonGroup size="lg">
-
                         <Button href="#/createscenario/basic" className="mb-2 mr-2" color="info">
                             <span className="btn-icon-wrapper pr-2 opacity-7">
                                 <FontAwesomeIcon icon={faCalendarPlus}/>
@@ -157,39 +154,33 @@ export default class ScenariosDashboard extends Component {
                     </ButtonGroup>
                     <ul />
 
+
                     {scriptsArray.map((script, index) => {
-                        return <div className="col-md-12 col-lg-11" key={index}>
+                        return <Label className="col-md-11 col-lg-11" key={index}>
                             <Card className="mb-3" >
                                 <CardBody className="pt-3">
                                     <Row>
-                                        <div className="col-md-1 col-lg-1">
+                                        <div className="col-sm-auto col-md-1 col-lg-1">
                                             <FormGroup check>
-                                                <Label>
                                                     {getCur(index)}
-                                                </Label>
                                             </FormGroup>
                                         </div>
-                                        <div className="col-md-5 col-lg-6">
-                                            <div className="widget-numbers fsize-3 text-muted">
+                                        <div className="col-md-5 col-lg-6" >
+                                            <div className="widget-numbers fsize-3 text-muted" id="scriptsName">
                                                 {scriptsArray[index][1]}
                                             </div>
                                         </div>
-                                        <div className="col-md-5 col-lg-5 align-items-baseline">
+                                        <div className="col-md-5 col-lg-5 ">
                                             {deleteScenario(index)}
-
-                                            <Button className="mb-2 mr-2" color="success">
-                                                <FontAwesomeIcon icon={faEdit} size="lg"/>
-                                                {' '}Редактировать
-                                            </Button>
+                                            <a className="ghost-button-edit" href="#/scenarioslist/basic">
+                                                <FontAwesomeIcon icon={faEdit} size="lg"/>{' '}Редактировать
+                                            </a>
                                         </div>
-
-
                                     </Row>
-
                                 </CardBody>
                             </Card>
 
-                        </div>
+                        </Label>
 
                     })}
 
