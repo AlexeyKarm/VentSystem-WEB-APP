@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import AnalyticsDashboard from '../../Devices/Basic';
 import classnames from 'classnames';
 import ReactDOM from 'react-dom'
 
 import {
-    Button, Input,
+    Button, Input, Form,
     ButtonGroup, Row,
     Card, CardBody,
     Label, FormGroup,
@@ -26,7 +27,6 @@ import {
 const domain = 'https://back.vc-app.ru/';
 
 let scripts = getJSON('app/get_scripts?did=10155');
-
 let cur = scripts['cur'];
 print("cur: "+ cur)
 let scriptsArray = Object.entries(scripts);
@@ -125,6 +125,13 @@ function print(text){
 }
 
 export default class ScenariosDashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+
+    };
 
     // shouldComponentUpdate(nextProps, nextState, nextContext) {
     //     if(scriptsArray.length !== scriptsArrayLength){
@@ -145,12 +152,16 @@ export default class ScenariosDashboard extends Component {
                     transitionLeave={false} >
 
                     <ButtonGroup size="lg">
-                        <Button href="#/createscenario/basic" className="mb-2 mr-2" color="info">
-                            <span className="btn-icon-wrapper pr-2 opacity-7">
-                                <FontAwesomeIcon icon={faCalendarPlus}/>
-                            </span>
-                            Добавить сценарий
-                        </Button>
+                        <div className="buttons">
+                            <Form action='#/createscenario/basic'>
+                                <button  className="btn-hover add_scenario">
+                                    <span className="btn-icon-wrapper pr-2 opacity-7">
+                                        <FontAwesomeIcon icon={faCalendarPlus}/>
+                                    </span>
+                                    Добавить сценарий
+                                </button>
+                            </Form>
+                        </div>
                     </ButtonGroup>
                     <ul />
 
