@@ -1,9 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import AnalyticsDashboard from '../../Devices/Basic';
-import classnames from 'classnames';
-import ReactDOM from 'react-dom'
 
 import {
     Button, Input, Form,
@@ -20,61 +17,12 @@ import {
 import {
     faTrash,
     faEdit,
-    faCalendarPlus
+    faCalendarPlus, faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 
-
 const domain = 'https://back.vc-app.ru/';
-
-let scripts = getJSON('app/get_scripts?did=10155');
-let cur = scripts['cur'];
-print("cur: "+ cur)
-let scriptsArray = Object.entries(scripts);
-let scriptsArrayLength = scriptsArray.length;
-scriptsArray.pop();
-//console.log(scriptsArray);
-
-
-function changeCurScenario(i, curNumber) {
-    i.preventDefault();
-    let newCurUrl = 'app/set_script?did=10155&sc_id=' + scriptsArray[curNumber][0];
-    notify('Сценарий был успешно выбран.');
-    getHTTP(newCurUrl);
-
-
-    //window.location.reload();
-}
-
-function getScenarioList(){
-    scripts = getJSON('app/get_scripts?did=10155');
-    cur = scripts['cur'];
-    scriptsArray = Object.entries(scripts);
-    scriptsArray.pop();
-}
-
-
-function getCur(number){
-    // number - это index
-    let curIdIndex;
-    if (scriptsArray[number][0] == cur) {
-        curIdIndex = number;
-    }
-    if (curIdIndex === number) {
-        return <Input type="radio" name="radio" onChange={(e) => changeCurScenario(e, number)} checked />
-    }
-    else {
-        return <Input type="radio" name="radio" onChange={(e) => changeCurScenario(e, number)} />
-    }
-}
-
-function getJSON(url) {
-    let request = new XMLHttpRequest();
-    url = domain + url;
-    request.open("GET", url, false);
-    request.setRequestHeader("Authorization", 'Yandex AgAAAAADcss4AAa-id41yBOKBEgdgHgz7ew8mP4');
-    request.send();
-    return JSON.parse(request.response);
-}
+let timer;
+let scriptsArray = [];
 
 function getHTTP(url) {
     let request = new XMLHttpRequest();
@@ -85,20 +33,12 @@ function getHTTP(url) {
 }
 
 function deleteScenario(num) {
-    function handleClick(e){
+    function handleClick(e) {
         e.preventDefault();
-        //print("num:" + num);
         let sc_id = scriptsArray[num][0];
-        //print("sc_id:" + sc_id);
         let delUrl = 'app/del_script?did=10155&sc_id=' + sc_id;
-        //console.log(domain + delUrl);
         getHTTP(delUrl);
-        getScenarioList();
-        print("newLength: " + scriptsArray.length);
-        scriptsArrayLength = scriptsArray.length;
-        //console.log(scriptsArray);
         window.location.reload();
-        notify('Сценарий был успешно удалён.');
     }
 
     return (
@@ -106,7 +46,6 @@ function deleteScenario(num) {
         <FontAwesomeIcon icon={faTrash} size="lg"/>{' '}Удалить
         </a>
     )
-
 }
 
 function notify (text) {
@@ -115,8 +54,7 @@ function notify (text) {
     closeButton: true,
     autoClose: 2000,
     position: "top-right",
-    type: 'warning',
-
+    type: 'success'
     })
 }
 
@@ -128,18 +66,88 @@ export default class ScenariosDashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
-        }
-
+            isLoaded: false,
+            scripts: [],
+            cur: 0,
+            scriptsArray: [],
+            timerNumber: false
+        };
+        this.tick = this.tick.bind(this);
+        this.getJSON = this.getJSON.bind(this);
+        this.changeCurScenario = this.changeCurScenario.bind(this);
     };
 
-    // shouldComponentUpdate(nextProps, nextState, nextContext) {
-    //     if(scriptsArray.length !== scriptsArrayLength){
-    //         return true
-    //     }
-    // }
+    componentWillUnmount() {
+        clearInterval(timer);
+    }
+
+    componentDidMount() {
+        timer = setInterval(() =>
+            this.tick(), 2000);
+    }
+
+    tick(){
+        try {
+            this.setState({
+                scripts: this.getJSON('app/get_scripts?did=10155')})
+        } catch (e) {
+            console.log('Failed to load...')
+        }
+        if (this.state.scripts !== []){
+            print('Data has been received!');
+            this.setState({
+                cur: this.state.scripts['cur']
+            });
+            print('curID: ' + this.state.cur);
+            this.setState({
+                scriptsArray: Object.entries(this.state.scripts)
+            });
+            scriptsArray = Object.entries(this.state.scripts);
+            this.state.scriptsArray.pop();
+            this.setState({
+                isLoaded: true,
+            });
+            if (this.state.timerNumber === false){
+                clearInterval(timer);
+                timer = setInterval(() =>
+                    this.tick(), 10000);
+                this.setState({
+                    timerNumber: true
+                })
+            }
+        }
+    }
+
+    changeCurScenario(i, curNumber) {
+        i.preventDefault();
+        this.setState({
+            cur: this.state.scriptsArray[curNumber][0]
+        });
+        let newCurUrl = 'app/set_script?did=10155&sc_id=' + scriptsArray[curNumber][0];
+        notify( 'Сценарий был успешно выбран');
+        getHTTP(newCurUrl);
+    }
+
+    getJSON(url) {
+        let request = new XMLHttpRequest();
+        url = domain + url;
+        request.open("GET", url, false);
+        request.setRequestHeader("Authorization", 'Yandex AgAAAAADcss4AAa-id41yBOKBEgdgHgz7ew8mP4');
+        request.send();
+        return JSON.parse(request.response);
+    }
 
     render() {
+        if (this.state.isLoaded === false) {
+            return (
+                <Fragment>
+                    <h4>
+                        <FontAwesomeIcon icon={faSpinner} spin/>
+                        &#160;Загрузка...
+                    </h4>
+                </Fragment>
+            )
+        } else
         return (
             <Fragment>
 
@@ -165,37 +173,56 @@ export default class ScenariosDashboard extends Component {
                     </ButtonGroup>
                     <ul />
 
-
-                    {scriptsArray.map((script, index) => {
-                        return <Label className="col-md-11 col-lg-11" key={index}>
-                            <Card className="mb-3" >
-                                <CardBody className="pt-3">
-                                    <Row>
-                                        <div className="col-sm-auto col-md-1 col-lg-1">
-                                            <FormGroup check>
-                                                    {getCur(index)}
-                                            </FormGroup>
-                                        </div>
-                                        <div className="col-md-5 col-lg-6" >
-                                            <div className="widget-numbers fsize-3 text-muted" id="scriptsName">
-                                                {scriptsArray[index][1]}
+                    {this.state.scriptsArray.map((script, index) => {
+                        if (script[0] == this.state.cur) {
+                            return <Label className="col-md-11 col-lg-11" key={index}>
+                                <Card className="mb-3" id="ScenariosList"
+                                      style={{background: 'linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%)'}}>
+                                    <CardBody className="pt-3">
+                                        <Row>
+                                            <Input type="radio" name="radio"
+                                                   onChange={(e) => this.changeCurScenario(e, index)} checked/>
+                                            <div className="col-md-5 col-lg-7 pl-4">
+                                                <div className="widget-numbers fsize-3 text-muted" id="scriptsName">
+                                                    {script[1]}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="col-md-5 col-lg-5 ">
-                                            {deleteScenario(index)}
-                                            <a className="ghost-button-edit" href="#/scenarioslist/basic">
-                                                <FontAwesomeIcon icon={faEdit} size="lg"/>{' '}Редактировать
-                                            </a>
-                                        </div>
-                                    </Row>
-                                </CardBody>
-                            </Card>
+                                            <div className="col-md-5 col-lg-5 ">
+                                                {deleteScenario(index)}
+                                                <a className="ghost-button-edit" href="#/scenarioslist/basic">
+                                                    <FontAwesomeIcon icon={faEdit} size="lg"/>{' '}Редактировать
+                                                </a>
+                                            </div>
+                                        </Row>
+                                    </CardBody>
+                                </Card>
 
-                        </Label>
-
+                            </Label>
+                        } else {
+                            return <Label className="col-md-11 col-lg-11" key={index}>
+                                <Card className="mb-3" id="ScenariosList"
+                                      style={{background: '#fff'}}>
+                                    <CardBody className="pt-3">
+                                        <Row>
+                                            <Input type="radio" name="radio"
+                                                   onChange={(e) => this.changeCurScenario(e, index)}/>
+                                            <div className="col-md-5 col-lg-7 pl-4">
+                                                <div className="widget-numbers fsize-3 text-muted" id="scriptsName">
+                                                    {script[1]}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-5 col-lg-5">
+                                                {deleteScenario(index)}
+                                                <a className="ghost-button-edit" href="#/scenarioslist/basic">
+                                                    <FontAwesomeIcon icon={faEdit} size="lg"/>{' '}Редактировать
+                                                </a>
+                                            </div>
+                                        </Row>
+                                    </CardBody>
+                                </Card>
+                            </Label>
+                        }
                     })}
-
-
                 </ReactCSSTransitionGroup>
             </Fragment>
         )

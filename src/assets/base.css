@@ -55,8 +55,8 @@
 }
 .ghost-button-delete:hover,
 .ghost-button-delete:active {
-  color: #66d8ed;
-  border-color: #66d8ed;
+  color: #B22222;
+  border-color: #B22222;
   transition: border-color 0.4s ease-in,
   color 0.2s ease-in;
   text-decoration: none;
@@ -65,7 +65,7 @@
 .ghost-button-edit {
   display: inline-block;
   padding: 8px;
-  color: #2E8B57;
+  color: #008000;
   border: none;
   text-align: center;
   font-size: 1.2em;
@@ -77,8 +77,8 @@
 }
 .ghost-button-edit:hover,
 .ghost-button-edit:active {
-  color: #66d8ed;
-  border-color: #66d8ed;
+  color: #006400;
+  border-color: #008000;
   transition: border-color 0.4s ease-in,
   color 0.2s ease-in;
   text-decoration: none;
@@ -148,6 +148,17 @@ input[type="time"], input[type="number"]
     margin-left: 30px;
   }
 
+}
+
+#ScenariosList:hover {
+  background: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 .list-group-item-primary {
@@ -607,9 +618,9 @@ input[type="radio"]
  {
   box-sizing: border-box;
   padding: 0;
-  transform: scale(2);
+  transform: scale(1);
   margin-top: 15px;
-
+  display: none;
 }
 
 input[type="date"],
@@ -10576,7 +10587,7 @@ body {
     background: #2FA4E7;
     box-shadow: 0 0.66875rem 2.3875rem rgba(47, 164, 231, 0.03), 0 1.1375rem 1.60625rem rgba(47, 164, 231, 0.03), 0 0.45rem 0.73125rem rgba(47, 164, 231, 0.05), 0 0.325rem 0.3875rem rgba(47, 164, 231, 0.03); }
   .Toastify__toast--success {
-    background: #73A839;
+    background: linear-gradient(90deg, rgba(62,213,135,1) 22%, rgba(0,212,255,1) 100%);;
     box-shadow: 0 0.66875rem 2.3875rem rgba(115, 168, 57, 0.03), 0 1.1375rem 1.60625rem rgba(115, 168, 57, 0.03), 0 0.45rem 0.73125rem rgba(115, 168, 57, 0.05), 0 0.325rem 0.3875rem rgba(115, 168, 57, 0.03); }
   .Toastify__toast--warning {
     background: #DD5600;
@@ -10584,9 +10595,12 @@ body {
   .Toastify__toast--error {
     background: #C71C22;
     box-shadow: 0 0.66875rem 2.3875rem rgba(199, 28, 34, 0.03), 0 1.1375rem 1.60625rem rgba(199, 28, 34, 0.03), 0 0.45rem 0.73125rem rgba(199, 28, 34, 0.05), 0 0.325rem 0.3875rem rgba(199, 28, 34, 0.03); }
+  .Toastify__toast--project {
+    background: #32CD32;
+    box-shadow: 0 0.66875rem 2.3875rem rgba(199, 28, 34, 0.03), 0 1.1375rem 1.60625rem rgba(199, 28, 34, 0.03), 0 0.45rem 0.73125rem rgba(199, 28, 34, 0.05), 0 0.325rem 0.3875rem rgba(199, 28, 34, 0.03); }
   .Toastify__toast-body {
-    margin: auto 0;
-    padding: 0 0 0.4rem; }
+      margin: auto 0;
+      padding: 0 0 0.4rem; }
 
 @media only screen and (max-width: 480px) {
   .Toastify__toast {
