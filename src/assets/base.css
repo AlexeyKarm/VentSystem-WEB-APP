@@ -120,7 +120,12 @@ input[type="time"], input[type="number"]
 #isCloudOff {
   margin-left: 10px;
 }
-
+#PlayMarket {
+  width: 15%;
+}
+#AppStore {
+  width: 13.2%;
+}
 @media screen and (max-width: 640px) {
   #scriptsName {
     margin-left: 30px;
@@ -147,7 +152,12 @@ input[type="time"], input[type="number"]
   #isCloudOff {
     margin-left: 30px;
   }
-
+  #PlayMarket {
+    width: 50%;
+  }
+  #AppStore {
+    width: 44%;
+  }
 }
 
 #ScenariosList:hover {
@@ -8678,7 +8688,7 @@ button,
   .app-footer .app-footer__inner {
     padding: 0 1.5rem 0 0.75rem;
     height: 60px;
-    display: flex;
+    display: inline-block;
     align-content: center;
     align-items: center; }
     .app-footer .app-footer__inner .app-footer-left {

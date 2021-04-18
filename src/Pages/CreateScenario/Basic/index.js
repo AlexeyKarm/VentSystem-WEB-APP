@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Slide, toast} from "react-toastify";
+import "react-widgets/styles.css";
+import "react-widgets/scss/styles.scss";
 import classnames from 'classnames';
 import ReactDOM from 'react-dom';
 
@@ -154,6 +156,7 @@ export default class CreateScenario extends Component {
 
     render() {
         return (
+
             <Fragment>
                 <ReactCSSTransitionGroup
                     component="div"
